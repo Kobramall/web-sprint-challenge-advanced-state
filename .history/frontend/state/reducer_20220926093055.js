@@ -51,7 +51,7 @@ const initialMessageState = {
 export function infoMessage(state = initialMessageState, action) {
   switch(action.type){
     case SET_INFO_MESSAGE:  
-    return{...state, message:action.payload}
+    return{message:action.payload}
     default: return state}
 }
 
@@ -65,6 +65,7 @@ export function form(state = initialFormState, action) {
     case RESET_FORM:
       return({...state, newQuestion:'', newTrueAnswer:'', newFalseAnswer:''})
     case CHANGE_INPUT:
+       console.log([action.payload.id]) 
        return({...state, [action.payload.id]: action.payload.str})
   default: return state}
 }

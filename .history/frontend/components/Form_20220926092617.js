@@ -1,18 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {change,  postQuiz} from '../state/action-creators'
+import { postAnswer, change, setMessage, postQuiz, resetForm  } from '../state/action-creators'
 
 function Form(props) {
 
   
 const onChange = evt => {
     props.change(evt.target.value, evt.target.id)
-    console.log(props.newQuestion)
   }
 
   const onSubmit = evt => {
     evt.preventDefault()   
-    props.postQuiz(props.newQuestion, props.newTrueAnswer, props.newFalseAnswer)
+      console.log(evt.target[1].value)
+    props.postQuiz(evt.target[0].value, evt.target[1].value, evt.target[2].value)
        } 
      
 
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {change, postQuiz})(Form)
+export default connect(mapStateToProps, { postAnswer, change, setMessage, postQuiz, resetForm })(Form)

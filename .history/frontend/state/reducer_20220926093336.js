@@ -51,7 +51,7 @@ const initialMessageState = {
 export function infoMessage(state = initialMessageState, action) {
   switch(action.type){
     case SET_INFO_MESSAGE:  
-    return{...state, message:action.payload}
+    return{message:action.payload}
     default: return state}
 }
 

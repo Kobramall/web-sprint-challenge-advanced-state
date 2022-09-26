@@ -86,8 +86,9 @@ export function postQuiz(str, str2, str3) {
     axios.post(`http://localhost:9000/api/quiz/new`, obj)
         .then(res => console.log(res))
         .catch(err => console.error(err))
-        dispatch(setMessage(`Congrats: "${str}" is a great question!`))
         dispatch(resetForm())
+        dispatch(setMessage(`Congrats: ${str} is a great question!`))
+        
       }
 }
 // ❗ On promise rejections, use log statements or breakpoints, and put an appropriate error message in state
